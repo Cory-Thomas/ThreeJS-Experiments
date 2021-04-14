@@ -7,6 +7,7 @@ import * as dat from 'dat.gui';
  * Debug
  */
 const gui = new dat.GUI();
+gui.hide();
 
 /**
  * Textures
@@ -37,13 +38,11 @@ const scene = new THREE.Scene();
  * Objects
  */
 const material = new THREE.MeshStandardMaterial();
-// material.metalness = 0;
-// material.roughness = 1;
+material.metalness = 0.1;
 material.map = colorTexture;
 material.aoMap = ambientOcclusionTexture;
 material.aoMapIntensity = 3;
-material.displacementMap = heightTexture;
-material.displacementScale = 0.08;
+material.bumpMap = heightTexture;
 material.normalMap = normalTexture;
 material.normalScale.set(1, 1);
 material.transparent = true;
